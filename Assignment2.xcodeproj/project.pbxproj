@@ -18,6 +18,7 @@
 		4E874E1F22B5377F00F71F89 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E874E1D22B5377F00F71F89 /* Main.storyboard */; };
 		4E874E2122B5378100F71F89 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E874E2022B5378100F71F89 /* Assets.xcassets */; };
 		4E874E2422B5378100F71F89 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E874E2222B5378100F71F89 /* LaunchScreen.storyboard */; };
+		4E9FB18822C8BDE100E03351 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9FB18722C8BDE100E03351 /* APIClient.swift */; };
 		B753AEA82510FBDAD99F74A4 /* Pods_Assignment2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 805230A372C96A746F796EAB /* Pods_Assignment2.framework */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +37,7 @@
 		4E874E2022B5378100F71F89 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4E874E2322B5378100F71F89 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4E874E2522B5378100F71F89 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4E9FB18722C8BDE100E03351 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		805230A372C96A746F796EAB /* Pods_Assignment2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Assignment2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		853EB645B47A43E2AA08C62C /* Pods-Assignment2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Assignment2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Assignment2/Pods-Assignment2.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -66,6 +68,7 @@
 				4E6600A822B7AE4F00D96CB9 /* Article.swift */,
 				4E0801A022C86121005F0CEC /* APIService.swift */,
 				4E0801A522C86A1A005F0CEC /* ArticleRequest.swift */,
+				4E9FB18722C8BDE100E03351 /* APIClient.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -241,6 +244,7 @@
 				4E0801A422C86822005F0CEC /* BasicCell.swift in Sources */,
 				4E0801A622C86A1A005F0CEC /* ArticleRequest.swift in Sources */,
 				4E6600A922B7AE4F00D96CB9 /* Article.swift in Sources */,
+				4E9FB18822C8BDE100E03351 /* APIClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

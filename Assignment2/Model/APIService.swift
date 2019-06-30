@@ -13,12 +13,10 @@ public enum RequestType : String{
 protocol ApiRequest{
     
     var method : RequestType { get }
-    
     var path : String { get }
-    
     var parameters : [String : String ]{ get}
     
-    
+ 
     
 }
 
@@ -66,9 +64,9 @@ extension ApiRequest {
 
 class ApiService {
     
-    let baseURL = URL(string: "http://universities.hipolabs.com/")!
+ //   let baseURL = URL(string: "http://universities.hipolabs.com/")!
     
-    
+     private let baseURL = URL(string: "https://itunes.apple.com/search/country=kr&media=software")!
     
     func send<T: Codable>(apiRequest : ApiRequest) -> Observable<T> {
         

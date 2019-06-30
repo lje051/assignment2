@@ -15,17 +15,18 @@ class TableViewController: UIViewController {
     var expanable = false
     var articles = [Article]()
     var selectedArticle:Article?
-    let queryService = QueryService()
-    
+    let apiService = ApiService()
+    let apiClient = APIClient()
     //   let Article = Observable.just(Chocolate.ofEurope)
     
     private let cellIdentifier = "BasicCell"
-    private let apiService = ApiService()
+   
     var disposeBag = DisposeBag()
     @IBOutlet weak var tableView: UITableView!
+    
     private let searchController: UISearchController = {
         let searchController = UISearchController(searchResultsController: nil)
-        searchController.searchBar.placeholder = "Search for university"
+        searchController.searchBar.placeholder = "Search for app"
         return searchController
     }()
     //  let europeanChocolates = Observable.just(Chocolate.ofEurope)
@@ -34,17 +35,33 @@ class TableViewController: UIViewController {
         super.viewDidLoad()
         
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        queryService.getSearchResults(searchTerm:"영어공부") { results, errorMessage in
-            UIApplication.shared.isNetworkActivityIndicatorVisible = false
-            if let results = results {
-                self.articles = results
-                self.setupCellConfiguration(self.articles)
-                
-            }
-            if !errorMessage.isEmpty { print("Search error: " + errorMessage) }
-        }
+//        queryService.getSearchResults(searchTerm:"영어공부") { results, errorMessage in
+//            UIApplication.shared.isNetworkActivityIndicatorVisible = false
+//            if let results = results {
+//                self.articles = results
+//                self.setupCellConfiguration(self.articles)
+//
+//            }
+//            if !errorMessage.isEmpty { print("Search error: " + errorMessage) }
+//        }
         
+        searchController.searchBar.rx.text.asObservable()
+            .map { ($0 ?? "english").lowercased() }
+            .map { ArticleRequest(name: $0) }
+            .flatMap { request -> Observable<[Article]> in
+              return self.apiClient.send(apiRequest: request)
+            }
+            .bind(to: tableView.rx.items(cellIdentifier: cellIdentifier)) { index, model, cell in
+//                cell.textLabel?.text = model.name
+//                cell.detailTextLabel?.text = model.description
+//                cell.textLabel?.adjustsFontSizeToFitWidth = true
+            }
+            .disposed(by: disposeBag)
+        //
         configureProperties()
+        tableView
+            .rx.setDelegate(self)
+            .disposed(by: disposeBag)
     }
     //Dispose bag
     
@@ -60,9 +77,7 @@ class TableViewController: UIViewController {
             }
             .disposed(by:disposeBag)
         
-        tableView
-            .rx.setDelegate(self)
-            .disposed(by: disposeBag)
+      
     }
     
     
@@ -73,7 +88,7 @@ class TableViewController: UIViewController {
     
     private func configureProperties() {
         navigationItem.searchController = searchController
-        navigationItem.title = "University finder"
+        navigationItem.title = "TableView"
         navigationItem.hidesSearchBarWhenScrolling = false
         navigationController?.navigationBar.prefersLargeTitles = true
     }
@@ -105,46 +120,20 @@ class TableViewController: UIViewController {
     //        return articles.count
     //    }
     //
-    //    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    //
-    //
-    //        let cell = tableView.dequeueReusableCell(withIdentifier: "BasicCell")!
-    //
-    //        let titlelb = cell.viewWithTag(2) as? UILabel
-    //        let authorlb = cell.viewWithTag(1) as? UILabel
-    //        let article = articles[indexPath.row]
-    //
-    //
-    //
-    //        return cell
-    //
-    //    }
-    //
-    //    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    //        if (indexPath.row == expandIndexPath && expanable == true){
-    //
-    //            return 100
-    //        }else{
-    //            return 300
-    //        }
-    //    }
-    //
+
     
     
     
 }
 extension TableViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        selectedArticle = articles[indexPath.row]
-        //Boolean 값을 줘서 특정 인덱스 크기변화를 할지 말지 정함
-        expanable = !expanable
-        //변수에 특정 인덱스값을 넣어 다시 리로딩할때 어떤것을 크기조정할지 알수 있다.
-        expandIndexPath = indexPath.row
-        tableView.reloadRows(at: [indexPath], with: .none)
-        
-        
-    }
+        func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+            if (indexPath.row == expandIndexPath && expanable == true){
+    
+                return 100
+            }else{
+                return 300
+            }
+        }
 }
 
 

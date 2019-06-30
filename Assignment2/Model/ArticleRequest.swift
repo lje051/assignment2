@@ -13,6 +13,6 @@ class ArticleRequest: ApiRequest {
     var parameters = [String: String]()
     
     init(name: String) {
-        parameters["name"] = name
+        parameters["terms"] = name
     }
 }

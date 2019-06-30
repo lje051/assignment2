@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-struct Article: Equatable, Hashable {
+struct Article: Codable {
   
   var articleTitle = ""
   var articleDescription = ""
@@ -22,8 +22,9 @@ struct Article: Equatable, Hashable {
     }
 
   
+  
 
-  init(name: String, artist: String, previewURL: String) {
+ internal  init(name: String, artist: String, previewURL: String) {
     self.articleTitle = name
     self.articleDescription = artist
     self.articleImageUrl = previewURL
