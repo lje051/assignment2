@@ -9,10 +9,10 @@
 import Foundation
 class ArticleRequest: ApiRequest {
     var method = RequestType.GET
-    var path = "search"
+    var path = ""
     var parameters = [String: String]()
     
     init(name: String) {
-        parameters["terms"] = name
+        parameters["term"] = name
     }
 }

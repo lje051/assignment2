@@ -16,15 +16,15 @@ struct Article: Codable {
   var articleImageUrl = ""
   
     private enum CodingKeys: String, CodingKey {
-        case articleTitle
-        case articleDescription 
-        case articleImageUrl
+        case articleTitle = "trackName"
+        case articleDescription  = "artistName"
+        case articleImageUrl = "artworkUrl100"
+
     }
-
+ 
   
-  
 
- internal  init(name: String, artist: String, previewURL: String) {
+   init(name: String, artist: String, previewURL: String) {
     self.articleTitle = name
     self.articleDescription = artist
     self.articleImageUrl = previewURL

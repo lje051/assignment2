@@ -45,7 +45,7 @@ class TableViewController: UIViewController {
 //            if !errorMessage.isEmpty { print("Search error: " + errorMessage) }
 //        }
         
-        searchController.searchBar.rx.text.asObservable()
+          searchController.searchBar.rx.text.asObservable()
             .map { ($0 ?? "english").lowercased() }
             .map { ArticleRequest(name: $0) }
             .flatMap { request -> Observable<[Article]> in
@@ -67,8 +67,8 @@ class TableViewController: UIViewController {
     
     
     func setupCellConfiguration(_ articleList:[Article]) {
-        let europeanChocolates = Observable.just(articleList)
-        europeanChocolates
+        let listObeservable = Observable.just(articleList)
+        listObeservable
             .bind(to: tableView
                 .rx
                 .items(cellIdentifier: BasicCell.Identifier,
