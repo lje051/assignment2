@@ -1,0 +1,62 @@
+//
+//  BasicCell.swift
+//  Assignment2
+//
+//  Created by Jeeeun Lim on 30/06/2019.
+//  Copyright © 2019 ASPN. All rights reserved.
+//
+
+import UIKit
+
+class BasicCell: UITableViewCell {
+    static let Identifier = "BasicCell"
+    
+    @IBOutlet private var mainImg: UIImageView!
+    @IBOutlet private var titlelb: UILabel!
+    @IBOutlet private var companylb: UILabel!
+    
+    func configureWithChocolate(article: Article) {
+        
+        titlelb.text = article.articleTitle
+        
+        companylb.text = article.articleDescription
+        
+        if article.articleImageUrl != "" {
+            
+            if let actualImageView = mainImg {
+                
+                let url = URL(string: article.articleImageUrl)
+                if let actualUrl = url {
+                    let request = URLRequest(url: actualUrl)
+                    let session = URLSession.shared
+                    let dataTask = session.dataTask(with: request, completionHandler: { (data, response, error ) in
+                        //fire off this work to update the ui to the main thread
+                        
+                        DispatchQueue.main.async {
+                            //the data has been downloaded. create a uiimage objet and assign it into the imageview
+                            if let actualData = data {
+                                actualImageView.image = UIImage(data:actualData)
+                            }
+                            
+                        }
+                    })
+                    
+                    
+                    //fire off the data task
+                    dataTask.resume()
+                    
+                }
+                
+                
+            }
+            
+            
+        }else{
+            //artilce has no image url, so set the imageview to nil image
+            if let actualImageView = mainImg {
+                actualImageView.image = nil
+            }
+        }
+        
+    }
+}

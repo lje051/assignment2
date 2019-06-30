@@ -4,8 +4,10 @@
 target 'Assignment2' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
-  pod 'RxSwift', '~> 4.0'
-  pod 'RxCocoa', '~> 4.0’
+  pod 'Alamofire', '~> 5.0.0-beta.5'
+  pod 'RxSwift', '~> 5'
+  pod 'RxCocoa', '~> 5'
+
   # Pods for Assignment2
 
 end

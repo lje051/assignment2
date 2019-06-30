@@ -9,15 +9,20 @@
 import Foundation
 import UIKit
 
-class Article: NSObject {
+struct Article: Equatable, Hashable {
   
   var articleTitle = ""
   var articleDescription = ""
   var articleImageUrl = ""
   
-  
+    private enum CodingKeys: String, CodingKey {
+        case articleTitle
+        case articleDescription 
+        case articleImageUrl
+    }
 
   
+
   init(name: String, artist: String, previewURL: String) {
     self.articleTitle = name
     self.articleDescription = artist

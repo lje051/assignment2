@@ -92,11 +92,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Exv-EC-xqU">
+                                <rect key="frame" x="0.0" y="64" width="320" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="jv1-Bo-U1O"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8GQ-1c-cIp">
-                                <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                                <rect key="frame" x="0.0" y="108" width="320" height="411"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="BasicCell" rowHeight="300" id="n7T-wE-eiX" customClass="BasicCell">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="BasicCell" rowHeight="300" id="n7T-wE-eiX" customClass="BasicCell" customModule="Assignment2" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="320" height="300"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="n7T-wE-eiX" id="65I-NX-DJC">
@@ -137,16 +144,24 @@
                                         <constraints>
                                             <constraint firstItem="bmo-54-oVm" firstAttribute="height" secondItem="n7T-wE-eiX" secondAttribute="height" multiplier="0.7" id="Hrn-kK-sav"/>
                                         </constraints>
+                                        <connections>
+                                            <outlet property="companylb" destination="vJx-tb-8sE" id="qog-Z1-0oO"/>
+                                            <outlet property="mainImg" destination="bmo-54-oVm" id="HhO-11-1mS"/>
+                                            <outlet property="titlelb" destination="Oox-30-gJh" id="hTH-9C-y6O"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="8GQ-1c-cIp" firstAttribute="top" secondItem="1JQ-rE-K6F" secondAttribute="top" id="J70-Hk-8xP"/>
+                            <constraint firstItem="8GQ-1c-cIp" firstAttribute="top" secondItem="Exv-EC-xqU" secondAttribute="bottom" id="812-tt-kiI"/>
                             <constraint firstItem="1JQ-rE-K6F" firstAttribute="trailing" secondItem="8GQ-1c-cIp" secondAttribute="trailing" id="OmK-38-LTb"/>
+                            <constraint firstItem="Exv-EC-xqU" firstAttribute="trailing" secondItem="1JQ-rE-K6F" secondAttribute="trailing" id="Q5f-n8-xgQ"/>
                             <constraint firstItem="1JQ-rE-K6F" firstAttribute="bottom" secondItem="8GQ-1c-cIp" secondAttribute="bottom" id="Rth-5n-yTY"/>
                             <constraint firstItem="8GQ-1c-cIp" firstAttribute="leading" secondItem="1JQ-rE-K6F" secondAttribute="leading" id="ctC-I4-1RS"/>
+                            <constraint firstItem="Exv-EC-xqU" firstAttribute="leading" secondItem="1JQ-rE-K6F" secondAttribute="leading" id="gdy-tt-avm"/>
+                            <constraint firstItem="Exv-EC-xqU" firstAttribute="top" secondItem="1JQ-rE-K6F" secondAttribute="top" id="voc-1D-Ihr"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="1JQ-rE-K6F"/>
                     </view>

@@ -27,7 +27,8 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-
+import RxSwift
+import RxCocoa
 import Foundation
 
 // Runs query data task, and stores results in array of Tracks
@@ -42,7 +43,9 @@ class QueryService {
   var dataTask: URLSessionDataTask?
   var tracks: [Article] = []
   var errorMessage = ""
-  
+    
+
+    
   func getSearchResults(searchTerm: String, completion: @escaping QueryResult) {
     // 1
     dataTask?.cancel()

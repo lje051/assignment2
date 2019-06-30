@@ -3,10 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E0801A122C86121005F0CEC /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0801A022C86121005F0CEC /* APIService.swift */; };
+		4E0801A422C86822005F0CEC /* BasicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0801A322C86822005F0CEC /* BasicCell.swift */; };
+		4E0801A622C86A1A005F0CEC /* ArticleRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0801A522C86A1A005F0CEC /* ArticleRequest.swift */; };
 		4E6600A722B7ADEA00D96CB9 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6600A622B7ADEA00D96CB9 /* CollectionViewController.swift */; };
 		4E6600A922B7AE4F00D96CB9 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6600A822B7AE4F00D96CB9 /* Article.swift */; };
 		4E6600AD22B7B79400D96CB9 /* QueryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6600AC22B7B79400D96CB9 /* QueryService.swift */; };
@@ -20,6 +23,9 @@
 
 /* Begin PBXFileReference section */
 		2DC7478BEC1EB00DA1FA0D27 /* Pods-Assignment2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Assignment2.release.xcconfig"; path = "Pods/Target Support Files/Pods-Assignment2/Pods-Assignment2.release.xcconfig"; sourceTree = "<group>"; };
+		4E0801A022C86121005F0CEC /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		4E0801A322C86822005F0CEC /* BasicCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicCell.swift; sourceTree = "<group>"; };
+		4E0801A522C86A1A005F0CEC /* ArticleRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleRequest.swift; sourceTree = "<group>"; };
 		4E6600A622B7ADEA00D96CB9 /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		4E6600A822B7AE4F00D96CB9 /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		4E6600AC22B7B79400D96CB9 /* QueryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryService.swift; sourceTree = "<group>"; };
@@ -46,10 +52,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4E0801A222C8680C005F0CEC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4E0801A322C86822005F0CEC /* BasicCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		4E6600A322B7AAFB00D96CB9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				4E6600A822B7AE4F00D96CB9 /* Article.swift */,
+				4E0801A022C86121005F0CEC /* APIService.swift */,
+				4E0801A522C86A1A005F0CEC /* ArticleRequest.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -75,6 +91,7 @@
 		4E874E1822B5377F00F71F89 /* Assignment2 */ = {
 			isa = PBXGroup;
 			children = (
+				4E0801A222C8680C005F0CEC /* View */,
 				4E6600A322B7AAFB00D96CB9 /* Model */,
 				4E874E1922B5377F00F71F89 /* AppDelegate.swift */,
 				4E874E1B22B5377F00F71F89 /* TableViewController.swift */,
@@ -179,19 +196,16 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Assignment2/Pods-Assignment2-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
-				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Assignment2/Pods-Assignment2-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Assignment2/Pods-Assignment2-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Assignment2/Pods-Assignment2-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Assignment2/Pods-Assignment2-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C20E92FA3D55C99504BCD8D8 /* [CP] Check Pods Manifest.lock */ = {
@@ -223,6 +237,9 @@
 				4E874E1C22B5377F00F71F89 /* TableViewController.swift in Sources */,
 				4E874E1A22B5377F00F71F89 /* AppDelegate.swift in Sources */,
 				4E6600AD22B7B79400D96CB9 /* QueryService.swift in Sources */,
+				4E0801A122C86121005F0CEC /* APIService.swift in Sources */,
+				4E0801A422C86822005F0CEC /* BasicCell.swift in Sources */,
+				4E0801A622C86A1A005F0CEC /* ArticleRequest.swift in Sources */,
 				4E6600A922B7AE4F00D96CB9 /* Article.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
