@@ -22,27 +22,14 @@ class APIClient {
                     let str = String(decoding: (data ?? nil)!, as: UTF8.self)
                     print(str)
                     let dict = self.convertToDictionary(text: str)
-                    
-                    if let arr = dict?["results"] as? [[String: Any]] {
-                       //print(arr[0])
-                       
-//                            let previewURLString = model["artworkUrl100"] as? String
-//                            let name = model["trackName"] as? String
-//                            let artist = model["artistName"] as? String
-//                            let article = Article.init()
-                     //  tracks.append(Article.init(name: name, artist: artist, previewURL: previewURLString))
-                       
-               //         let model: T = try JSONDecoder().decode(T.self, from: json)
-                            
-                        
-                        
-                        
-                      
-                    }
+                    var a = dict!["results"]! as! Array ;
+                    let arr = a.map({($1).value})
+                    let encodedData =  arr.data(using: .utf8)
+                   
                     
                   
-                  //  let model: T = try JSONDecoder().decode(T.self, from: data ?? Data())
-                  //  observer.onNext(model)
+                    let model =  try? JSONDecoder().decode(Article.self, from: encodedData ?? Data())
+                    observer.onNext(model)
                 } catch let error {
                     observer.onError(error)
                 }
