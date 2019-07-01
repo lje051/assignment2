@@ -52,9 +52,9 @@ class TableViewController: UIViewController {
               return self.apiClient.send(apiRequest: request)
             }
             .bind(to: tableView.rx.items(cellIdentifier: cellIdentifier)) { index, model, cell in
-//                cell.textLabel?.text = model.name
-//                cell.detailTextLabel?.text = model.description
-//                cell.textLabel?.adjustsFontSizeToFitWidth = true
+                
+//             cell.detailTextLabel?.text = model.description
+//               cell.textLabel?.adjustsFontSizeToFitWidth = true
             }
             .disposed(by: disposeBag)
         //

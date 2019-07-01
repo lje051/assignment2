@@ -14,22 +14,22 @@ class APIClient {
         return nil
     }
      var tracks: [Article] = []
-    func send<Article>(apiRequest: ApiRequest) -> Observable<Article> {
-        return Observable<Article>.create { [unowned self] observer in
+
+//    func requestArticle() -> Observable<[Article]> {
+//        APIClient().send(apiRequest: <#T##ApiRequest#>)
+//    }
+
+    func send(apiRequest: ApiRequest) -> Observable<[Article]> {
+        return Observable<[Article]>.create { observer in
             let request = apiRequest.request(with: self.baseURL)
             let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
                 do {
                     let str = String(decoding: (data ?? nil)!, as: UTF8.self)
-                    print(str)
-                    let dict = self.convertToDictionary(text: str)
-                    var a = dict!["results"]! as! Array ;
-                    let arr = a.map({($1).value})
-                    let encodedData =  arr.data(using: .utf8)
-                   
-                    
-                  
-                    let model =  try? JSONDecoder().decode(Article.self, from: encodedData ?? Data())
-                    observer.onNext(model)
+                   // print(str)
+
+                    let model =  try? JSONDecoder().decode(ArticleResult.self, from: data ?? Data())
+                    observer.onNext(model?.articeList ?? [])
+
                 } catch let error {
                     observer.onError(error)
                 }

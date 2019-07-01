@@ -9,14 +9,23 @@
 import Foundation
 import UIKit
 
-struct Article {
-  
-  var articleTitle :String
-  var articleDescription :String
-  var articleImageUrl :String
-  
-   
-  
+struct ArticleResult:Codable {
+     let articeList: [Article]
+
+    enum CodingKeys: String, CodingKey {
+        case articeList = "results"
+    }
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self) // defining our (keyed) container
+        let articeList: [Article] = try container.decode([Article].self, forKey: .articeList)
+        self.articeList = articeList
+    }
+}
+
+struct Article: Codable {
+  let articleTitle: String
+  let articleDescription: String
+  let articleImageUrl: String
 
    init(name: String, artist: String, previewURL: String) {
     self.articleTitle = name
@@ -24,14 +33,14 @@ struct Article {
     self.articleImageUrl = previewURL
   }
   
-}; extension Article: Decodable {
+}
+
+extension Article {
     enum CodingKeys: String, CodingKey {
         case articleTitle = "trackName"
         case articleDescription  = "artistName"
         case articleImageUrl = "artworkUrl100"
-        
     }
-    
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self) // defining our (keyed) container

@@ -11,9 +11,9 @@ import UIKit
 class BasicCell: UITableViewCell {
     static let Identifier = "BasicCell"
     
-    @IBOutlet private var mainImg: UIImageView!
-    @IBOutlet private var titlelb: UILabel!
-    @IBOutlet private var companylb: UILabel!
+    @IBOutlet  var mainImg: UIImageView!
+    @IBOutlet  var titlelb: UILabel!
+    @IBOutlet  var companylb: UILabel!
     
     func configureWithChocolate(article: Article) {
         
