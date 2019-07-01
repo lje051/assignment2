@@ -17,9 +17,7 @@ class BasicCell: UITableViewCell {
     
     func configureWithChocolate(article: Article) {
         
-        titlelb.text = article.articleTitle
-        
-        companylb.text = article.articleDescription
+    
         
         if article.articleImageUrl != "" {
             
@@ -31,7 +29,7 @@ class BasicCell: UITableViewCell {
                     let session = URLSession.shared
                     let dataTask = session.dataTask(with: request, completionHandler: { (data, response, error ) in
                         //fire off this work to update the ui to the main thread
-                        
+                        //사용자가 눈치채기전에 이미지 교환
                         DispatchQueue.main.async {
                             //the data has been downloaded. create a uiimage objet and assign it into the imageview
                             if let actualData = data {
@@ -41,7 +39,9 @@ class BasicCell: UITableViewCell {
                         }
                     })
                     
+                    titlelb.text = article.articleTitle
                     
+                    companylb.text = article.articleDescription
                     //fire off the data task
                     dataTask.resume()
                     

@@ -104,19 +104,19 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="252" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="API Development" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oox-30-gJh">
-                                                    <rect key="frame" x="10" y="230" width="300" height="18"/>
+                                                    <rect key="frame" x="10" y="36" width="300" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" red="0.1058823529" green="0.10980392160000001" blue="0.1176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noimage.png" translatesAutoresizingMaskIntoConstraints="NO" id="bmo-54-oVm">
-                                                    <rect key="frame" x="55" y="10" width="210" height="210"/>
+                                                <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noimage.png" translatesAutoresizingMaskIntoConstraints="NO" id="bmo-54-oVm">
+                                                    <rect key="frame" x="10" y="10" width="16" height="16"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" secondItem="bmo-54-oVm" secondAttribute="height" id="8GM-Xp-It8"/>
+                                                        <constraint firstAttribute="width" secondItem="bmo-54-oVm" secondAttribute="height" multiplier="1:1" id="AhX-5h-nS4"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A Practical Guide" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vJx-tb-8sE">
-                                                    <rect key="frame" x="10" y="253" width="300" height="41.5"/>
+                                                    <rect key="frame" x="10" y="59" width="300" height="14.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -127,16 +127,14 @@
                                                 <constraint firstAttribute="trailing" secondItem="vJx-tb-8sE" secondAttribute="trailing" constant="10" id="EE9-1z-Ygy"/>
                                                 <constraint firstItem="bmo-54-oVm" firstAttribute="top" secondItem="65I-NX-DJC" secondAttribute="top" constant="10" id="LRZ-WS-5UK"/>
                                                 <constraint firstItem="vJx-tb-8sE" firstAttribute="leading" secondItem="65I-NX-DJC" secondAttribute="leading" constant="10" id="M2P-h2-538"/>
-                                                <constraint firstItem="bmo-54-oVm" firstAttribute="centerX" secondItem="65I-NX-DJC" secondAttribute="centerX" id="Ssy-Nb-27Y"/>
+                                                <constraint firstItem="bmo-54-oVm" firstAttribute="leading" secondItem="65I-NX-DJC" secondAttribute="leading" constant="10" id="NOW-Z3-okr"/>
                                                 <constraint firstItem="Oox-30-gJh" firstAttribute="leading" secondItem="65I-NX-DJC" secondAttribute="leading" constant="10" id="VXn-dC-BsS"/>
                                                 <constraint firstAttribute="bottom" secondItem="vJx-tb-8sE" secondAttribute="bottom" constant="5" id="Zsf-Bn-Myy"/>
+                                                <constraint firstAttribute="trailing" secondItem="bmo-54-oVm" secondAttribute="trailing" constant="10" id="efI-ky-Gc5"/>
                                                 <constraint firstAttribute="trailing" secondItem="Oox-30-gJh" secondAttribute="trailing" constant="10" id="pqK-37-uxc"/>
                                                 <constraint firstItem="Oox-30-gJh" firstAttribute="top" secondItem="bmo-54-oVm" secondAttribute="bottom" constant="10" id="sJh-8M-rdY"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <constraints>
-                                            <constraint firstItem="bmo-54-oVm" firstAttribute="height" secondItem="n7T-wE-eiX" secondAttribute="height" multiplier="0.7" id="Hrn-kK-sav"/>
-                                        </constraints>
                                         <connections>
                                             <outlet property="companylb" destination="vJx-tb-8sE" id="qog-Z1-0oO"/>
                                             <outlet property="mainImg" destination="bmo-54-oVm" id="HhO-11-1mS"/>

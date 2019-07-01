@@ -27,13 +27,38 @@ class TableViewController: UIViewController {
     private let searchController: UISearchController = {
         let searchController = UISearchController(searchResultsController: nil)
         searchController.searchBar.placeholder = "Search for app"
+        
+      
+        
+        
+        searchController.hidesNavigationBarDuringPresentation = false
+        
+        searchController.dimsBackgroundDuringPresentation = false
+        
+        //tableView.tableHeaderView = searchController.searchBar
+        
+      
+        
+        searchController.searchBar.sizeToFit()
+        
+        
+      
+        
+    
+
+        
+        
+        
+        
+        
         return searchController
     }()
     //  let europeanChocolates = Observable.just(Chocolate.ofEurope)
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        tableView.estimatedRowHeight = 350
+
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
 //        queryService.getSearchResults(searchTerm:"영어공부") { results, errorMessage in
 //            UIApplication.shared.isNetworkActivityIndicatorVisible = false
@@ -44,28 +69,28 @@ class TableViewController: UIViewController {
 //            }
 //            if !errorMessage.isEmpty { print("Search error: " + errorMessage) }
 //        }
-        
-          searchController.searchBar.rx.text.asObservable()
-            .map { ($0 ?? "english").lowercased() }
-            .map { ArticleRequest(name: $0) }
-            .flatMap { request -> Observable<[Article]> in
-              return self.apiClient.send(apiRequest: request)
-            }
-            .bind(to: tableView.rx.items(cellIdentifier: cellIdentifier)) { index, model, cell in
-                
-//             cell.detailTextLabel?.text = model.description
-//               cell.textLabel?.adjustsFontSizeToFitWidth = true
-            }
-            .disposed(by: disposeBag)
-        //
         configureProperties()
         tableView
             .rx.setDelegate(self)
             .disposed(by: disposeBag)
+        
+          searchController.searchBar.rx.text.asObservable()
+            .map { ($0 ?? "") }
+            .map { ArticleRequest(name: $0) }
+            .flatMap { request -> Observable<[Article]> in
+              return self.apiClient.send(apiRequest: request)
+            }
+            .bind(to: tableView.rx.items(cellIdentifier: cellIdentifier,   cellType: BasicCell.self)) { index, model, cell in
+               cell.configureWithChocolate(article: model)
+                
+            }
+            .disposed(by: disposeBag)
+      
+     
     }
     //Dispose bag
     
-    
+  
     func setupCellConfiguration(_ articleList:[Article]) {
         let listObeservable = Observable.just(articleList)
         listObeservable
@@ -127,12 +152,7 @@ class TableViewController: UIViewController {
 }
 extension TableViewController: UITableViewDelegate {
         func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-            if (indexPath.row == expandIndexPath && expanable == true){
-    
-                return 100
-            }else{
-                return 300
-            }
+         return UITableView.automaticDimension
         }
 }
 
