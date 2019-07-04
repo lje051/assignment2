@@ -17,7 +17,7 @@ class TableViewController: UIViewController {
     var selectedArticle:Article?
     let apiService = ApiService()
     let apiClient = APIClient()
-    //   let Article = Observable.just(Chocolate.ofEurope)
+ 
     
     private let cellIdentifier = "BasicCell"
    
@@ -27,29 +27,9 @@ class TableViewController: UIViewController {
     private let searchController: UISearchController = {
         let searchController = UISearchController(searchResultsController: nil)
         searchController.searchBar.placeholder = "Search for app"
-        
-      
-        
-        
         searchController.hidesNavigationBarDuringPresentation = false
-        
         searchController.dimsBackgroundDuringPresentation = false
-        
-        //tableView.tableHeaderView = searchController.searchBar
-        
-      
-        
         searchController.searchBar.sizeToFit()
-        
-        
-      
-        
-    
-
-        
-        
-        
-        
         
         return searchController
     }()
@@ -82,7 +62,18 @@ class TableViewController: UIViewController {
             }
             .bind(to: tableView.rx.items(cellIdentifier: cellIdentifier,   cellType: BasicCell.self)) { index, model, cell in
                cell.configureWithChocolate(article: model)
-                
+//                Observable.just("800x600")
+//                    .map { $0.replacingOccurrences(of: "x", with: "/") }
+//                    .map { "https://picsum.photos/\($0)/?random" }
+//                    .map { URL(string: $0) }
+//                    .filter { $0 != nil }
+//                    .map { $0! }
+//                    .map { try Data(contentsOf: $0) }
+//                    .map { UIImage(data: $0) }
+//                    .subscribe(onNext: { image in
+//                        self.imageView.image = image
+//                    })
+//                    .disposed(by: disposeBag)
             }
             .disposed(by: disposeBag)
       

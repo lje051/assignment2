@@ -21,11 +21,11 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="j2t-uc-LYK">
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewLayout key="collectionViewLayout" id="49L-4V-d3C"/>
+                                <collectionViewLayout key="collectionViewLayout" id="49L-4V-d3C" customClass="PinterestLayout" customModule="Assignment2" customModuleProvider="target"/>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="BasicCell" id="pE2-iS-lSh" customClass="BasicCell">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ArticleCell" id="pE2-iS-lSh" customClass="ArticleCell" customModule="Assignment2" customModuleProvider="target">
                                         <rect key="frame" x="60" y="0.0" width="200" height="200"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                                             <autoresizingMask key="autoresizingMask"/>
@@ -62,6 +62,11 @@
                                             <constraint firstItem="ceW-l0-V8g" firstAttribute="leading" secondItem="pE2-iS-lSh" secondAttribute="leading" constant="10" id="xgC-lW-mG8"/>
                                         </constraints>
                                         <size key="customSize" width="200" height="200"/>
+                                        <connections>
+                                            <outlet property="companylb" destination="qhw-PL-iXk" id="EjL-uw-Y1H"/>
+                                            <outlet property="mainImg" destination="LG0-tv-hH8" id="KVh-2q-nTk"/>
+                                            <outlet property="titlelb" destination="ceW-l0-V8g" id="8Fx-h7-tdP"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
